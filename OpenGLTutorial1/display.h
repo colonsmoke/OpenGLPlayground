@@ -15,6 +15,8 @@ public:
 
     bool    IsClosed() { return m_isClosed; }
 
+    void    Clear(float red, float green, float blue, float alpha);
+
 private:
     SDL_Window* m_window;
     SDL_GLContext m_glContext;
