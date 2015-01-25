@@ -3,6 +3,7 @@
 #include "display.h"
 #include "shader.h"
 #include "mesh.h"
+#include "GL\glew.h"
 
 int main(int argc, char** argv)
 {
@@ -19,9 +20,12 @@ int main(int argc, char** argv)
     while (!display.IsClosed())
     {
         display.Clear(0.0f, 0.15f, 0.35f, 1.0f);
+
         shader.Bind();
 
         mesh.Draw();
+
+        GLenum myError = glGetError();
 
         display.Update();
     }

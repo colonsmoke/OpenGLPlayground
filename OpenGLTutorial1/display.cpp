@@ -40,10 +40,12 @@ Display::~Display()
 
 void Display::Update()
 {
+
+    SDL_GL_SwapWindow(m_window);
+
     glClearColor(0.0f, 0.15f, 0.35f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
 
-    SDL_GL_SwapWindow(m_window);
 
     SDL_Event e;
 

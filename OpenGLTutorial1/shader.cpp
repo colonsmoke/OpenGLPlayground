@@ -12,7 +12,7 @@ Shader::Shader(const std::string& fileName)
     m_shaders[0] = CreateShader(LoadShader(fileName + ".vsh"), GL_VERTEX_SHADER);
     m_shaders[1] = CreateShader(LoadShader(fileName + ".fsh"), GL_FRAGMENT_SHADER);
 
-    for (int i = 0; i < NUM_SHADERS; i++)
+    for (unsigned int i = 0; i < NUM_SHADERS; i++)
     {
         glAttachShader(m_program, m_shaders[i]);
     }
@@ -28,6 +28,8 @@ Shader::Shader(const std::string& fileName)
 
 Shader::~Shader()
 {
+    glUseProgram(0);
+
     for (int i = 0; i < NUM_SHADERS; i++)
     {
         glDetachShader(m_program, m_shaders[i]);
