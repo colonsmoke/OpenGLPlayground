@@ -25,6 +25,9 @@
     <ClCompile Include="texture.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="obj_loader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="display.h" />
@@ -34,6 +37,7 @@
     <ClInclude Include="texture.h" />
     <ClInclude Include="transform.h" />
     <ClInclude Include="camera.h" />
+    <ClInclude Include="obj_loader.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="res\basicShader.fsh">
