@@ -2,7 +2,7 @@
 
 #include <iostream>
 #include <GL/glew.h>
-#include <SDL2\SDL.h>
+#include <SDL2/SDL.h>
 
 Display::Display(int width, int height, const std::string& title)
 {

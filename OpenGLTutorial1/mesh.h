@@ -1,17 +1,23 @@
 #pragma once
 
 #include <glm/glm.hpp>
-#include <GL\glew.h>
+#include <GL/glew.h>
 
 class Vertex
 {
 public:
-    Vertex(const glm::vec3& pos)
+    Vertex(const glm::vec3& pos, const glm::vec2& texCoord)
     {
-        this->pos = pos;
+        this->m_pos = pos;
+        this->m_texCoord = texCoord;
     }
+
+    inline glm::vec3* GetPos() { return &m_pos; }
+    inline glm::vec2* GetTexCoord() { return &m_texCoord; }
+
 private:
-    glm::vec3 pos;
+    glm::vec3 m_pos;
+    glm::vec2 m_texCoord;
 };
 
 class Mesh
@@ -27,6 +33,7 @@ private:
     enum
     {
         POSITION_VB,
+        TEXCOORD_VB,
         NUM_BUFFERS
     };
 
