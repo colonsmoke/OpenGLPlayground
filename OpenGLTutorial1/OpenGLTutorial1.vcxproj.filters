@@ -22,9 +22,6 @@
     <ClCompile Include="mesh.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="stb_image.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="texture.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -36,6 +33,7 @@
     <ClInclude Include="stb_image.h" />
     <ClInclude Include="texture.h" />
     <ClInclude Include="transform.h" />
+    <ClInclude Include="camera.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="res\basicShader.fsh">
