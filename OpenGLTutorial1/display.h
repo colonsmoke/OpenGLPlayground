@@ -1,7 +1,7 @@
 #ifndef __MY_DISPLAY_H
 #define __MY_DISPLAY_H
 
-#include <SDL2\SDL.h>
+#include <SDL2/SDL.h>
 #include <string>
 
 class Display
