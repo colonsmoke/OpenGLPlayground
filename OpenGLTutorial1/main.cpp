@@ -6,14 +6,19 @@
 #include "GL/glew.h"
 #include "texture.h"
 #include "transform.h"
+#include "camera.h"
 
+#define WIDTH 800
+#define HEIGHT 600
 int main(int argc, char** argv)
 {
-    Display display(800,600, "Hello World");
+    Display display(WIDTH, HEIGHT, "OpenGL Playground");
 
     Shader shader("./res/basicShader");
 
     Texture texture("./res/brick.jfif");
+
+    Camera camera(glm::vec3(0, 0, -3), 70.0, (float)WIDTH / (float)HEIGHT, 0.01f, 1000.0f);
 
     Transform transform;
 
@@ -33,12 +38,14 @@ int main(int argc, char** argv)
         float cosCounter = cosf(counter);
 
         transform.GetPos().x = sinCounter;
-        transform.GetPos().y = cosCounter;
+        transform.GetPos().z = cosCounter;
         transform.GetRot().z = counter;
-        transform.SetScale(glm::vec3(cosCounter, cosCounter, cosCounter));
+        transform.GetRot().y = counter;
+        transform.GetRot().x = counter;
+        // transform.SetScale(glm::vec3(cosCounter, cosCounter, cosCounter));
 
         shader.Bind();
-        shader.Update(transform);
+        shader.Update(transform, camera);
         texture.Bind(0);
         mesh.Draw();
 
