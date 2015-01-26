@@ -8,14 +8,14 @@
 #include "transform.h"
 #include "camera.h"
 
-#define WIDTH 800
-#define HEIGHT 600
+#define WIDTH 1280
+#define HEIGHT 1024
 int main(int argc, char** argv)
 {
     Display display(WIDTH, HEIGHT, "OpenGL Playground");
     Shader shader("./res/basicShader");
-    Texture texture("./res/brick.jfif");
-    Camera camera(glm::vec3(0, 0, -4), 70.0, (float)WIDTH / (float)HEIGHT, 0.01f, 1000.0f);
+    Texture texture("./res/whiteGloss.jpg");
+    Camera camera(glm::vec3(0, 0, -7), 70.0, (float)WIDTH / (float)HEIGHT, 0.01f, 1000.0f);
     Transform transform;
 
     float counter = 0.0f;
@@ -29,7 +29,7 @@ int main(int argc, char** argv)
     Mesh mesh(vertices, sizeof(vertices) / sizeof(vertices[0]),
                 indices, sizeof(indices) / sizeof(indices[0]) );
 
-    Mesh mesh2("./res/monkey3.obj");
+    Mesh mesh2("./res/eva.obj");
 
     while (!display.IsClosed())
     {
@@ -39,7 +39,7 @@ int main(int argc, char** argv)
         float cosCounter = cosf(counter);
 
         transform.GetPos().x = sinCounter;
-        transform.GetPos().z = cosCounter;
+        transform.GetPos().z = cosCounter*3;
         transform.GetRot().z = counter;
         transform.GetRot().y = counter + 180.0;
         transform.GetRot().x = counter;
