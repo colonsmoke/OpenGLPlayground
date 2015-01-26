@@ -15,12 +15,15 @@ int main(int argc, char** argv)
 {
     Display display(WIDTH, HEIGHT, "OpenGL Playground");
     Shader shader("./res/basicShader");
-    Texture texture("./res/enterprise.png");
-    Texture texture2("./res/silver-metal.jpg");
+    Texture texture("./res/silver-metal.jpg");
+    //Texture texture("./res/enterprise.png");
+    Texture texture2("./res/brick.jfif");
     Camera camera(glm::vec3(0, 0, -10), 70.0, (float)WIDTH / (float)HEIGHT, 0.01f, 1000.0f);
     Transform transform;
 
     float counter = 0.0f;
+    float counter2 = 0.0f;
+    float counter3 = 0.0f;
 
     Vertex vertices[] = {   Vertex(glm::vec3(-0.5, -0.5, 0), glm::vec2(0.0,0.0)),
                             Vertex(glm::vec3(0, 0.5, 0), glm::vec2(0.5,1.0)),
@@ -38,24 +41,26 @@ int main(int argc, char** argv)
         display.Clear(0.0f, 0.15f, 0.35f, 1.0f);
 
         float sinCounter = sinf(counter);
-        float cosCounter = cosf(counter);
+        float cosCounter = cosf(counter2);
 
         transform.GetPos().x = sinCounter;
         transform.GetPos().z = cosCounter*3;
         transform.GetRot().z = counter;
-        transform.GetRot().y = -counter + 80.0;
-        transform.GetRot().x = counter+70.0;
+        transform.GetRot().y = -counter2;
+        transform.GetRot().x = counter2;
 
         shader.Bind();
         shader.Update(transform, camera);
+
         texture.Bind(0);
-        texture.Bind(1);
         mesh2.Draw();
 
         GLenum myError = glGetError();
 
         display.Update();
         counter += 0.001f;
+        counter2 += 0.002f;
+        counter3 += 0.003f;
     }
 
     return 0;

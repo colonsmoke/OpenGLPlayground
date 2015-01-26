@@ -21,7 +21,9 @@ public:
 
         glm::mat4 rotMatrix = rotZMatrix * rotYMatrix * rotXMatrix;
 
-        return posMatrix * rotMatrix * scaleMatrix;
+        glm::mat4 modelView = posMatrix * rotMatrix * scaleMatrix;
+
+        return modelView;
     }
 
     inline glm::vec3& GetPos() { return m_pos; }
@@ -36,5 +38,6 @@ private:
     glm::vec3 m_pos;
     glm::vec3 m_rot;
     glm::vec3 m_scale;
+    glm::mat4 m_normalMatrix;
 };
 
